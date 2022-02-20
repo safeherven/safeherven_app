@@ -9,6 +9,19 @@ class MenuBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      onTap: (int index) {
+        switch (index) {
+          case 0:
+            Navigator.pushNamed(context, '/');
+            break;
+          case 1:
+            Navigator.pushNamed(context, '/map');
+            break;
+          case 2:
+            Navigator.pushNamed(context, '/about');
+            break;
+        }
+      },
       items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
