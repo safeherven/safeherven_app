@@ -36,7 +36,7 @@ class MenuBottom extends StatelessWidget {
             label: 'About',
           ),
         ],
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.purple[500],
     );
   }
 }
