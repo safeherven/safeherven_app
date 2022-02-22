@@ -15,13 +15,13 @@ class SafeHervenApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.purple),
+      initialRoute: '/',
       routes: {
         '/': (context) => const HomeScreen(),
         '/about': (context) => const AboutScreen(),
         '/chat': (context) => const ChatScreen(),
         '/map': (context) => const SafeSpotsScreen(),
       },
-      initialRoute: '/',
     );
   }
 }

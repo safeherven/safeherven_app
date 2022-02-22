@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:safeherven_app/screens/map.dart';
+import 'package:safeherven_app/screens/about.dart';
+import 'package:safeherven_app/screens/chat.dart';
+import 'package:safeherven_app/screens/home.dart';
 
 
 class MenuBottom extends StatelessWidget {
@@ -12,13 +16,22 @@ class MenuBottom extends StatelessWidget {
       onTap: (int index) {
         switch (index) {
           case 0:
-            Navigator.pushNamed(context, '/');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const HomeScreen()),
+            );
             break;
           case 1:
-            Navigator.pushNamed(context, '/map');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SafeSpotsScreen()),
+            );
             break;
           case 2:
-            Navigator.pushNamed(context, '/about');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const AboutScreen()),
+            );
             break;
         }
       },

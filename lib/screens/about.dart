@@ -9,7 +9,7 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('About Us'),),
-      drawer: const MenuDrawer(),
+      // drawer: const MenuDrawer(),
       bottomNavigationBar: const MenuBottom(),
       body: const Center(
       ),

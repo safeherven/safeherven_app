@@ -9,7 +9,7 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Let's Talk"),),
-      drawer: const MenuDrawer(),
+      // drawer: const MenuDrawer(),
       bottomNavigationBar: const MenuBottom(),
       body: const Center(
       ),
