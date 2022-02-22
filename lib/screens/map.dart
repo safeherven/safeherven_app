@@ -39,13 +39,12 @@ class _SafeSpotsScreenState extends State<SafeSpotsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: const Text('Find Safe Spots'),
           backgroundColor: Colors.purple,
         ),
-        drawer: const MenuDrawer(),
+        // drawer: const MenuDrawer(),
         bottomNavigationBar: const MenuBottom(),
         body: GoogleMap(
           onMapCreated: _onMapCreated,
@@ -54,7 +53,6 @@ class _SafeSpotsScreenState extends State<SafeSpotsScreen> {
             zoom: 11.0,
           ),
         ),
-      ),
     );
   }
 }
