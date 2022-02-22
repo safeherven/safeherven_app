@@ -3,6 +3,7 @@ import 'package:safeherven_app/screens/map.dart';
 import 'package:safeherven_app/screens/about.dart';
 import 'package:safeherven_app/screens/chat.dart';
 import 'package:safeherven_app/screens/home.dart';
+import 'package:safeherven_app/screens/alert.dart';
 
 void main() {
   runApp(const SafeHervenApp());
@@ -21,6 +22,7 @@ class SafeHervenApp extends StatelessWidget {
         '/about': (context) => const AboutScreen(),
         '/chat': (context) => const ChatScreen(),
         '/map': (context) => const SafeSpotsScreen(),
+        '/alert': (context) => const AlertScreen(),
       },
     );
   }

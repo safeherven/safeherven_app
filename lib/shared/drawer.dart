@@ -3,6 +3,7 @@ import 'package:safeherven_app/screens/map.dart';
 import 'package:safeherven_app/screens/about.dart';
 import 'package:safeherven_app/screens/chat.dart';
 import 'package:safeherven_app/screens/home.dart';
+import 'package:safeherven_app/screens/alert.dart';
 
 
 class MenuDrawer extends StatelessWidget {
@@ -23,6 +24,7 @@ class MenuDrawer extends StatelessWidget {
       'Safe Spots',
       'Chat',
       'About',
+      'Alert Others',
     ];
     List<Widget> menuItems = [];
     menuItems.add(const DrawerHeader(
@@ -50,6 +52,9 @@ class MenuDrawer extends StatelessWidget {
               break;
             case 'About':
               screen = const AboutScreen();
+              break;
+            case 'Alert Others':
+              screen = const AlertScreen();
               break;
 
           }
