@@ -2,24 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:safeherven_app/shared/drawer.dart';
 import 'package:safeherven_app/shared/bottom.dart';
 import 'package:flutter_config/flutter_config.dart';
-
-// class PlacesScreen extends StatelessWidget {
-//   const PlacesScreen({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: const Text('Find Safe Spots'),),
-//       drawer: const MenuDrawer(),
-//       bottomNavigationBar: const MenuBottom(),
-//       body: const MapSample(),
-//     );
-//   }
-// }
-
+import 'package:safeherven_app/shared/appbar.dart';
 
 class PlacesScreen extends StatefulWidget {
   const PlacesScreen({Key? key}) : super(key: key);
@@ -40,11 +25,7 @@ class _PlacesScreenState extends State<PlacesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Find Places'),
-          backgroundColor: Colors.purple,
-        ),
-        // drawer: const MenuDrawer(),
+        appBar: SafeHervenAppBar("Find Places"),
         bottomNavigationBar: const MenuBottom(),
         body: GoogleMap(
           onMapCreated: _onMapCreated,

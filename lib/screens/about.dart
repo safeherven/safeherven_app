@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:safeherven_app/screens/chat.dart';
 import 'package:safeherven_app/shared/bottom.dart';
+import 'package:safeherven_app/shared/appbar.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({Key? key}) : super(key: key);
@@ -8,7 +9,7 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('About Us'),),
+      appBar: SafeHervenAppBar('About'),
       // drawer: const MenuDrawer(),
       bottomNavigationBar: const MenuBottom(),
       body: const Center(

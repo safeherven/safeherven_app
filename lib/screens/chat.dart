@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:safeherven_app/shared/chat.dart';
 import 'package:safeherven_app/shared/bottom.dart';
+import 'package:safeherven_app/shared/appbar.dart';
 
 
 class ChatScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Let's Talk"),),
+      appBar: SafeHervenAppBar("Let's Talk"),
       bottomNavigationBar: const MenuBottom(),
       body: const Center(
         child: Chat(),
