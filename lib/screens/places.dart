@@ -6,8 +6,8 @@ import 'package:safeherven_app/shared/drawer.dart';
 import 'package:safeherven_app/shared/bottom.dart';
 import 'package:flutter_config/flutter_config.dart';
 
-// class SafeSpotsScreen extends StatelessWidget {
-//   const SafeSpotsScreen({Key? key}) : super(key: key);
+// class PlacesScreen extends StatelessWidget {
+//   const PlacesScreen({Key? key}) : super(key: key);
 //
 //   @override
 //   Widget build(BuildContext context) {
@@ -21,14 +21,14 @@ import 'package:flutter_config/flutter_config.dart';
 // }
 
 
-class SafeSpotsScreen extends StatefulWidget {
-  const SafeSpotsScreen({Key? key}) : super(key: key);
+class PlacesScreen extends StatefulWidget {
+  const PlacesScreen({Key? key}) : super(key: key);
 
   @override
-  _SafeSpotsScreenState createState() => _SafeSpotsScreenState();
+  _PlacesScreenState createState() => _PlacesScreenState();
 }
 
-class _SafeSpotsScreenState extends State<SafeSpotsScreen> {
+class _PlacesScreenState extends State<PlacesScreen> {
   late GoogleMapController mapController;
 
   final LatLng _center = const LatLng(45.521563, -122.677433);
@@ -41,7 +41,7 @@ class _SafeSpotsScreenState extends State<SafeSpotsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Find Safe Spots'),
+          title: const Text('Find Places'),
           backgroundColor: Colors.purple,
         ),
         // drawer: const MenuDrawer(),

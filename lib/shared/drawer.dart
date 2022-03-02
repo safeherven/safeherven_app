@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:safeherven_app/screens/map.dart';
+import 'package:safeherven_app/screens/places.dart';
 import 'package:safeherven_app/screens/about.dart';
 import 'package:safeherven_app/screens/chat.dart';
 import 'package:safeherven_app/screens/home.dart';
@@ -21,7 +21,7 @@ class MenuDrawer extends StatelessWidget {
   List<Widget> buildMenuItems(BuildContext context) {
     final List<String> menuTitles = [
       'Home',
-      'Safe Spots',
+      'Places',
       'Chat',
       'About',
       'Alert Others',
@@ -44,8 +44,8 @@ class MenuDrawer extends StatelessWidget {
             case 'Home':
               screen = const HomeScreen();
               break;
-            case 'Safe Spots':
-              screen = const SafeSpotsScreen();
+            case 'Places':
+              screen = const PlacesScreen();
               break;
             case 'Chat':
               screen = const ChatScreen();

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:safeherven_app/screens/map.dart';
-import 'package:safeherven_app/screens/about.dart';
+import 'package:safeherven_app/screens/places.dart';
 import 'package:safeherven_app/screens/alert.dart';
 import 'package:safeherven_app/screens/home.dart';
 
@@ -24,7 +23,7 @@ class MenuBottom extends StatelessWidget {
           case 1:
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const SafeSpotsScreen()),
+              MaterialPageRoute(builder: (context) => const PlacesScreen()),
             );
             break;
           case 2:
@@ -42,7 +41,7 @@ class MenuBottom extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.location_on),
-            label: 'Safe Spots',
+            label: 'Places',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add_alert),
