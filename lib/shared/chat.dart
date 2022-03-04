@@ -35,8 +35,8 @@ class _ChatState extends State<Chat> {
 
   @override
   void dispose() {
-    _recorderStatus?.cancel();
-    _audioStreamSubscription?.cancel();
+    _recorderStatus.cancel();
+    _audioStreamSubscription.cancel();
     super.dispose();
   }
 
@@ -67,8 +67,8 @@ class _ChatState extends State<Chat> {
 
   void stopStream() async {
     await _recorder.stop();
-    await _audioStreamSubscription?.cancel();
-    await _audioStream?.close();
+    await _audioStreamSubscription.cancel();
+    await _audioStream.close();
   }
 
   void handleSubmitted(text) async {
