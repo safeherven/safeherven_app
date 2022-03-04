@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterfire_ui/auth.dart';
 import 'package:safeherven_app/screens/places.dart';
 import 'package:safeherven_app/screens/about.dart';
 import 'package:safeherven_app/screens/chat.dart';
@@ -42,7 +44,17 @@ class MenuDrawer extends StatelessWidget {
         onTap: () {
           switch (element) {
             case 'Home':
-              screen = const HomeScreen();
+              screen = StreamBuilder<User?>(
+                  stream: FirebaseAuth.instance.authStateChanges(),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      return const SignInScreen(providerConfigs: [
+                        EmailProviderConfiguration(),
+                      ],);
+                    }
+                    return HomeScreen(user: snapshot.data!);
+                  }
+              );
               break;
             case 'Places':
               screen = const PlacesScreen();
@@ -65,6 +77,7 @@ class MenuDrawer extends StatelessWidget {
         },
       ));
     }
+    menuItems.add(const SignOutButton());
     return menuItems;
   }
 

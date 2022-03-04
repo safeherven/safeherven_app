@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterfire_ui/auth.dart';
 import 'package:safeherven_app/screens/places.dart';
 import 'package:safeherven_app/screens/alert.dart';
 import 'package:safeherven_app/screens/home.dart';
@@ -17,7 +19,18 @@ class MenuBottom extends StatelessWidget {
           case 0:
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const HomeScreen()),
+              MaterialPageRoute(builder: (context) => StreamBuilder<User?>(
+                  stream: FirebaseAuth.instance.authStateChanges(),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      return const SignInScreen(providerConfigs: [
+                        EmailProviderConfiguration(),
+                      ],);
+                    }
+                    return HomeScreen(user: snapshot.data!);
+                  }
+                ),
+              ),
             );
             break;
           case 1:

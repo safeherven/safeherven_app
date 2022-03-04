@@ -1,10 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:safeherven_app/screens/chat.dart';
 import 'package:safeherven_app/shared/drawer.dart';
 import 'package:safeherven_app/shared/bottom.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key, required this.user}) : super(key: key);
+
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -43,15 +46,15 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             width: 200,
             child: Column(
-              children: const <Widget>[
+              children: <Widget>[
                 Text(
-                  'Hello Firstname',
-                  style: TextStyle(
+                  'Hi ' + user.displayName.toString(),
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
+                const Text(
                   'Welcome back! \nWe are here for you as always to help.',
                 ),
               ],
@@ -70,7 +73,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Explore the menu to find places or  create danger alerts to keep others around you safe. The chatbot is there for you if you just wanna talk and let it all out.',
+                    'Explore the menu to find places or  create danger alerts'
+                        ' to keep others around you safe. The chatbot is there '
+                        'for you if you just wanna talk and let it all out.',
                   ),
                 ],
               ),
