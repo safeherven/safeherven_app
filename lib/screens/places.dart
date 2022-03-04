@@ -25,7 +25,7 @@ class _PlacesScreenState extends State<PlacesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: SafeHervenAppBar("Find Places"),
+        appBar: SafeHervenAppBar("Find Places", isHome: false),
         bottomNavigationBar: const MenuBottom(),
         body: GoogleMap(
           onMapCreated: _onMapCreated,

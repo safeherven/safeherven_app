@@ -15,7 +15,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SafeHervenAppBar("Let's Talk"),
+      appBar: SafeHervenAppBar("Let's Talk", isHome: false,),
       bottomNavigationBar: const MenuBottom(),
       body: const Center(
         child: Chat(),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:safeherven_app/screens/chat.dart';
 import 'package:safeherven_app/shared/drawer.dart';
 import 'package:safeherven_app/shared/bottom.dart';
+import 'package:safeherven_app/shared/appbar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key, required this.user}) : super(key: key);
@@ -12,30 +13,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: IconButton(
-          onPressed: null,
-          icon: Image.asset('assets/images/logos/white.png'),
-          iconSize: 50,
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(
-              Icons.notifications,
-              color: Colors.white,
-            ),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
-            onPressed: () {},
-          ),
-        ],
-      ),
+      appBar: SafeHervenAppBar("Home", isHome: true,),
       drawer: const MenuDrawer(),
       bottomNavigationBar: const MenuBottom(),
       body: Column(

@@ -9,7 +9,7 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SafeHervenAppBar('About'),
+      appBar: SafeHervenAppBar('About', isHome: false,),
       // drawer: const MenuDrawer(),
       bottomNavigationBar: const MenuBottom(),
       body: const Center(

@@ -9,7 +9,7 @@ class AlertScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SafeHervenAppBar("Alert Others"),
+      appBar: SafeHervenAppBar("Alert Others", isHome: false,),
       bottomNavigationBar: const MenuBottom(),
       body: const Center(
       ),

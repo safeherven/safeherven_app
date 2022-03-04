@@ -10,7 +10,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SafeHervenAppBar("Settings"),
+      appBar: SafeHervenAppBar("Settings", isHome: false,),
       bottomNavigationBar: const MenuBottom(),
       body: const Center(
       ),

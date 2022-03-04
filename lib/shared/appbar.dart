@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
-import 'package:safeherven_app/screens/places.dart';
-import 'package:safeherven_app/screens/alert.dart';
-import 'package:safeherven_app/screens/home.dart';
 import 'package:safeherven_app/screens/settings/settings.dart';
 
 class SafeHervenAppBar extends StatelessWidget with PreferredSizeWidget {
@@ -11,16 +8,25 @@ class SafeHervenAppBar extends StatelessWidget with PreferredSizeWidget {
   final Size preferredSize;
 
   final String title;
+  final bool isHome;
 
   SafeHervenAppBar(
-      this.title, { Key? key,}) : preferredSize = const Size.fromHeight(50.0),
+      this.title, { Key? key, required this.isHome,}) :
+        preferredSize = const Size.fromHeight(50.0),
         super(key: key);
 
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(title),
+      centerTitle: isHome == false ? false : true,
+      title: isHome == false
+          ? Text(title)
+          : IconButton(
+              onPressed: null,
+              icon: Image.asset('assets/images/logos/white.png'),
+              iconSize: 50,
+            ),
       actions: <Widget>[
 
         IconButton(
