@@ -48,6 +48,10 @@ dependencies:
   firebase_core: ^1.13.1
   flutterfire_ui: ^0.3.5+1
   google_sign_in: ^5.2.4
+  location: ^4.3.0
+  permission_handler: ^9.2.0
+  geolocator: ^8.2.0
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:

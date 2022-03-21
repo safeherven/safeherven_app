@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:safeherven_app/blocs/application_bloc.dart';
 import 'package:safeherven_app/screens/places.dart';
 import 'package:safeherven_app/screens/about.dart';
 import 'package:safeherven_app/screens/chat.dart';
@@ -20,22 +22,25 @@ class SafeHervenApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        textTheme: GoogleFonts.jostTextTheme(
-          Theme.of(context).textTheme,
+    return ChangeNotifierProvider(
+      create: (BuildContext context)  => ApplicationBloc(),
+      child: MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.purple,
+          textTheme: GoogleFonts.jostTextTheme(
+            Theme.of(context).textTheme,
+          ),
         ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const Wrapper(),
+          '/about': (context) => const AboutScreen(),
+          '/chat': (context) => const ChatScreen(),
+          '/map': (context) => const PlacesScreen(),
+          '/alert': (context) => const AlertScreen(),
+          '/settings': (context) => const SettingsScreen(),
+        },
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const Wrapper(),
-        '/about': (context) => const AboutScreen(),
-        '/chat': (context) => const ChatScreen(),
-        '/map': (context) => const PlacesScreen(),
-        '/alert': (context) => const AlertScreen(),
-        '/settings': (context) => const SettingsScreen(),
-      },
     );
   }
 }
