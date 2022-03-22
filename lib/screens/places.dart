@@ -18,7 +18,7 @@ class PlacesScreen extends StatefulWidget {
 }
 
 class _PlacesScreenState extends State<PlacesScreen> {
-  late GoogleMapController mapController;
+  // late GoogleMapController mapController;
 
   // final LatLng _center = const LatLng(45.521563, -122.677433);
   //
@@ -27,6 +27,8 @@ class _PlacesScreenState extends State<PlacesScreen> {
   // }
   final Completer<GoogleMapController> _mapController = Completer();
   late StreamSubscription locationSubscription;
+  late StreamSubscription boundsSubscription;
+  final _locationController = TextEditingController();
 
   @override
   void initState() {
@@ -35,9 +37,18 @@ class _PlacesScreenState extends State<PlacesScreen> {
     // listen for a selected location
     locationSubscription = applicationBloc.selectedLocation.stream.listen((place) {
       if (place != null) {
+        _locationController.text = place.name!;
         _goToPlace(place);
+      } else {
+        _locationController.text = "";
       }
     });
+
+    boundsSubscription = applicationBloc.bounds.stream.listen((bounds) async {
+      final GoogleMapController controller = await _mapController.future;
+      controller.animateCamera(CameraUpdate.newLatLngBounds(bounds, 50.0));
+    });
+
     super.initState();
   }
 
@@ -45,6 +56,7 @@ class _PlacesScreenState extends State<PlacesScreen> {
   void dispose() {
     final applicationBloc = Provider.of<ApplicationBloc>(context, listen: false);
     applicationBloc.dispose();
+    boundsSubscription.cancel();
     locationSubscription.cancel();
     super.dispose();
   }
@@ -62,11 +74,14 @@ class _PlacesScreenState extends State<PlacesScreen> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                controller: _locationController,
+                textCapitalization: TextCapitalization.words,
                 decoration: const InputDecoration(
                   hintText: "Search Location",
                   suffixIcon: Icon(Icons.search),
                 ),
                 onChanged: (value) => applicationBloc.searchPLaces(value),
+                onTap: () => applicationBloc.clearSelectedLocation(),
               ),
             ),
             Stack(
@@ -74,6 +89,7 @@ class _PlacesScreenState extends State<PlacesScreen> {
                 SizedBox(
                   height: 300,
                   child: GoogleMap(
+                    markers: Set<Marker>.of(applicationBloc.markers),
                     onMapCreated: (GoogleMapController controller){
                       _mapController.complete(controller);
                     },
@@ -119,6 +135,90 @@ class _PlacesScreenState extends State<PlacesScreen> {
                   ),
                 )
               ],
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Find Nearest Place',
+                style: TextStyle(
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Wrap(
+                spacing: 5.0,
+                children: [
+                  FilterChip(
+                    label: const Text('Hospital'),
+                    onSelected: (val) => applicationBloc.togglePlaceType('hospital', val),
+                    selected: applicationBloc.placeType == 'hospital',
+                    selectedColor: Colors.purple,
+                  ),
+                  FilterChip(
+                    label: const Text('Police Station'),
+                    onSelected: (val) => applicationBloc.togglePlaceType('police', val),
+                    selected: applicationBloc.placeType == 'police',
+                    selectedColor: Colors.purple,
+                  ),
+                  FilterChip(
+                    label: const Text('Church'),
+                    onSelected: (val) => applicationBloc.togglePlaceType('church', val),
+                    selected: applicationBloc.placeType == 'church',
+                    selectedColor: Colors.purple,
+                  ),
+                  FilterChip(
+                    label: const Text('Mosque'),
+                    onSelected: (val) => applicationBloc.togglePlaceType('mosque', val),
+                    selected: applicationBloc.placeType == 'mosque',
+                    selectedColor: Colors.purple,
+                  ),
+                  FilterChip(
+                    label: const Text('Pharmacy'),
+                    onSelected: (val) => applicationBloc.togglePlaceType('pharmacy', val),
+                    selected: applicationBloc.placeType == 'pharmacy',
+                    selectedColor: Colors.purple,
+                  ),
+                  FilterChip(
+                    label: const Text('Travel Agency'),
+                    onSelected: (val) => applicationBloc.togglePlaceType('travel_agency', val),
+                    selected: applicationBloc.placeType == 'travel_agency',
+                    selectedColor: Colors.purple,
+                  ),
+                  FilterChip(
+                    label: const Text('Lawyer'),
+                    onSelected: (val) => applicationBloc.togglePlaceType('lawyer', val),
+                    selected: applicationBloc.placeType == 'lawyer',
+                    selectedColor: Colors.purple,
+                  ),
+                  FilterChip(
+                    label: const Text('ATM'),
+                    onSelected: (val) => applicationBloc.togglePlaceType('atm', val),
+                    selected: applicationBloc.placeType == 'atm',
+                    selectedColor: Colors.purple,
+                  ),
+                  FilterChip(
+                    label: const Text('Bank'),
+                    onSelected: (val) => applicationBloc.togglePlaceType('bank', val),
+                    selected: applicationBloc.placeType == 'bank',
+                    selectedColor: Colors.purple,
+                  ),
+                  FilterChip(
+                    label: const Text('Doctor'),
+                    onSelected: (val) => applicationBloc.togglePlaceType('doctor', val),
+                    selected: applicationBloc.placeType == 'doctor',
+                    selectedColor: Colors.purple,
+                  ),
+                  FilterChip(
+                    label: const Text('University'),
+                    onSelected: (val) => applicationBloc.togglePlaceType('university', val),
+                    selected: applicationBloc.placeType == 'university',
+                    selectedColor: Colors.purple,
+                  ),
+                ],
+              ),
             ),
           ]
         ),
