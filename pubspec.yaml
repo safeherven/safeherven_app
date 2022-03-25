@@ -86,6 +86,8 @@ flutter:
     - assets/images/logos/mixed_all.png
     - assets/images/logos/mixed-logo.png
     - assets/images/logos/transparent-blk-n-wht.png
+    - assets/images/home/afro-woman.png
+    - assets/images/home/free-woman.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
