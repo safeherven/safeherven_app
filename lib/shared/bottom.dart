@@ -1,20 +1,36 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
+import 'package:safeherven_app/screens/help.dart';
 import 'package:safeherven_app/screens/places.dart';
 import 'package:safeherven_app/screens/alert.dart';
 import 'package:safeherven_app/screens/home.dart';
 
 
-class MenuBottom extends StatelessWidget {
+class MenuBottom extends StatefulWidget {
   const MenuBottom({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<MenuBottom> createState() => _MenuBottomState();
+}
+
+class _MenuBottomState extends State<MenuBottom> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+
+  @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       onTap: (int index) {
+        _onItemTapped(index);
         switch (index) {
           case 0:
             Navigator.push(
@@ -42,7 +58,7 @@ class MenuBottom extends StatelessWidget {
           case 2:
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const AlertScreen()),
+              MaterialPageRoute(builder: (context) => const HelpScreen()),
             );
             break;
         }
@@ -57,11 +73,12 @@ class MenuBottom extends StatelessWidget {
             label: 'Places',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_alert),
-            label: 'Alert',
+            icon: Icon(Icons.health_and_safety),
+            label: 'Get Help',
           ),
         ],
-        selectedItemColor: Colors.purple[500],
+      currentIndex: _selectedIndex,
+      selectedItemColor: Colors.purple[500],
     );
   }
 }

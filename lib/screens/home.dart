@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SafeHervenAppBar("Home", isHome: true,),
-      drawer: const MenuDrawer(),
+      drawer: MenuDrawer(),
       bottomNavigationBar: const MenuBottom(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,

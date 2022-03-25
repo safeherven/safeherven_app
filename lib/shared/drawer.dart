@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
+import 'package:safeherven_app/screens/help.dart';
 import 'package:safeherven_app/screens/places.dart';
 import 'package:safeherven_app/screens/about.dart';
 import 'package:safeherven_app/screens/chat.dart';
@@ -27,6 +29,7 @@ class MenuDrawer extends StatelessWidget {
       'Chat',
       'About',
       'Alert Others',
+      'Get Help',
     ];
     List<Widget> menuItems = [];
     menuItems.add(const DrawerHeader(
@@ -67,6 +70,9 @@ class MenuDrawer extends StatelessWidget {
               break;
             case 'Alert Others':
               screen = const AlertScreen();
+              break;
+            case 'Get Help':
+              screen = const HelpScreen();
               break;
 
           }
