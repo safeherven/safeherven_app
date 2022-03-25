@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
+import 'package:safeherven_app/screens/chat.dart';
 import 'package:safeherven_app/screens/help.dart';
 import 'package:safeherven_app/screens/places.dart';
 import 'package:safeherven_app/screens/alert.dart';
@@ -29,6 +30,7 @@ class _MenuBottomState extends State<MenuBottom> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
       onTap: (int index) {
         _onItemTapped(index);
         switch (index) {
@@ -61,6 +63,12 @@ class _MenuBottomState extends State<MenuBottom> {
               MaterialPageRoute(builder: (context) => const HelpScreen()),
             );
             break;
+          case 3:
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ChatScreen()),
+            );
+            break;
         }
       },
       items: const <BottomNavigationBarItem>[
@@ -76,6 +84,10 @@ class _MenuBottomState extends State<MenuBottom> {
             icon: Icon(Icons.health_and_safety),
             label: 'Get Help',
           ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.chat),
+          label: 'Chat',
+        ),
         ],
       currentIndex: _selectedIndex,
       selectedItemColor: Colors.purple[500],
