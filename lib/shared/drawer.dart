@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
@@ -22,7 +21,10 @@ class MenuDrawer extends StatelessWidget {
     );
   }
 
+
+
   List<Widget> buildMenuItems(BuildContext context) {
+    IconData icon = Icons.check;
     final List<String> menuTitles = [
       'Home',
       'Places',
@@ -32,16 +34,41 @@ class MenuDrawer extends StatelessWidget {
       'Get Help',
     ];
     List<Widget> menuItems = [];
-    menuItems.add(const DrawerHeader(
+    menuItems.add(DrawerHeader(
       decoration: BoxDecoration(
         color: Colors.purple
       ),
-      child: Text('Safe Herven',
-      style: TextStyle(color: Colors.white, fontSize: 28),)
+      child: Column(
+        children: <Widget>[
+          Image.asset("assets/images/logos/white.png", width: 100, height: 100,),
+          Text('Safe Herven', style: TextStyle(color: Colors.white, fontSize: 25),)
+        ],
+      ),
     ));
     for (var element in menuTitles) {
+      switch (element) {
+        case 'Home':
+          icon = Icons.home;
+          break;
+        case 'Places':
+          icon = Icons.location_on;
+          break;
+        case 'Chat':
+          icon = Icons.chat;
+          break;
+        case 'About':
+          icon = Icons.person;
+          break;
+        case 'Alert Others':
+          icon = Icons.edit_notifications_rounded;
+          break;
+        case 'Get Help':
+          icon = Icons.health_and_safety;
+          break;
+      }
       Widget screen = Container();
       menuItems.add(ListTile(
+        leading: Icon(icon, color: Colors.purple,),
         title: Text(element,
         style: const TextStyle(fontSize: 18),),
         onTap: () {
@@ -83,7 +110,11 @@ class MenuDrawer extends StatelessWidget {
         },
       ));
     }
-    menuItems.add(const SignOutButton());
+    menuItems.add(Divider(thickness: 2,));
+    menuItems.add(Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+      child: const SignOutButton(),
+    ));
     return menuItems;
   }
 

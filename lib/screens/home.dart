@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
     final double width=MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: SafeHervenAppBar("Home", isHome: true,),
-      drawer: const MenuDrawer(),
+      drawer: MenuDrawer(),
       bottomNavigationBar: const MenuBottom(),
       body: Column(
         children: [
