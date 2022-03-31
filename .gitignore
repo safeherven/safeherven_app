@@ -49,3 +49,4 @@ app.*.map.json
 assets/credentials.json
 android/app/google-services.json
 lib/firebase_options.dart
+android/key.properties

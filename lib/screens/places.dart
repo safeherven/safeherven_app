@@ -7,6 +7,7 @@ import 'package:safeherven_app/blocs/application_bloc.dart';
 import 'package:safeherven_app/shared/bottom.dart';
 import 'package:flutter_config/flutter_config.dart';
 import 'package:safeherven_app/shared/appbar.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../models/place.dart';
 
@@ -18,20 +19,29 @@ class PlacesScreen extends StatefulWidget {
 }
 
 class _PlacesScreenState extends State<PlacesScreen> {
-  // late GoogleMapController mapController;
-
-  // final LatLng _center = const LatLng(45.521563, -122.677433);
-  //
-  // void _onMapCreated(GoogleMapController controller) {
-  //   mapController = controller;
-  // }
   final Completer<GoogleMapController> _mapController = Completer();
   late StreamSubscription locationSubscription;
   late StreamSubscription boundsSubscription;
   final _locationController = TextEditingController();
 
+   _checkStatus() async {
+    var status = await Permission.location.status;
+    if (status.isGranted) {
+
+    } else if (status.isDenied) {
+      Map<Permission, PermissionStatus> status = await [
+        Permission.location,
+      ].request();
+    }
+    if (await Permission.location.isPermanentlyDenied) {
+      openAppSettings();
+    }
+  }
+
+
   @override
   void initState() {
+    _checkStatus();
     final applicationBloc = Provider.of<ApplicationBloc>(context, listen: false);
 
     // listen for a selected location

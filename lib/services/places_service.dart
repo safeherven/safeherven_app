@@ -12,7 +12,10 @@ class PlacesService {
     var url = Uri.parse('https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$search&types=%28cities%29&key=$key');
     var response = await http.get(url);
     var json = convert.jsonDecode(response.body);
+    print(json);
     var jsonResults = json['predictions'] as List;
+    print("results");
+    print(jsonResults.map((place) => PlaceSearch.fromJson(place)).toList());
     return jsonResults.map((place) => PlaceSearch.fromJson(place)).toList();
   }
 

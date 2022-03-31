@@ -56,7 +56,11 @@ class _HelpScreenState extends State<HelpScreen> {
             ],
           ),
           Expanded(
-            child: ListView.builder(
+            child: _orgList.length == 0 ?
+            Center(
+              child: CircularProgressIndicator(),
+            ) :
+            ListView.builder(
               itemCount: _orgList.length,
               itemBuilder: (context, index) {
               return OrgCard(ngo: _orgList[index] as Organization,);

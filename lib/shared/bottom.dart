@@ -32,9 +32,9 @@ class _MenuBottomState extends State<MenuBottom> {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       onTap: (int index) {
-        _onItemTapped(index);
         switch (index) {
           case 0:
+            _onItemTapped(0);
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => StreamBuilder<User?>(
@@ -52,18 +52,21 @@ class _MenuBottomState extends State<MenuBottom> {
             );
             break;
           case 1:
+            _onItemTapped(1);
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const PlacesScreen()),
             );
             break;
           case 2:
+            _onItemTapped(2);
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const HelpScreen()),
             );
             break;
           case 3:
+            _onItemTapped(3);
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const ChatScreen()),
@@ -71,26 +74,26 @@ class _MenuBottomState extends State<MenuBottom> {
             break;
         }
       },
-      items: const <BottomNavigationBarItem>[
+      items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home, color: _selectedIndex == 0 ? Colors.purple : Colors.grey,),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.location_on),
+            icon: Icon(Icons.location_on, color: _selectedIndex == 1 ? Colors.purple : Colors.grey,),
             label: 'Places',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.health_and_safety),
+            icon: Icon(Icons.health_and_safety, color: _selectedIndex == 2 ? Colors.purple : Colors.grey,),
             label: 'Get Help',
           ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.chat),
+          icon: Icon(Icons.chat, color: _selectedIndex == 3 ? Colors.purple : Colors.grey,),
           label: 'Chat',
         ),
         ],
-      currentIndex: _selectedIndex,
-      selectedItemColor: Colors.purple[500],
+      // currentIndex: _selectedIndex,
+      // selectedItemColor: Colors.purple[500],
     );
   }
 }

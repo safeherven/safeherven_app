@@ -21,10 +21,10 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: 120,
+            height: 100,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
-                bottomRight: Radius.circular(50)
+                bottomRight: Radius.circular(40)
               ),
               color: Colors.purple,
               boxShadow: [
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                   top:30,
                   left: 0,
                   child: Container(
-                    height: 65,
+                    height: 40,
                     width: 300,
                     decoration: const BoxDecoration(
                       color: Colors.white,
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                   )
                 ),
                 Positioned(
-                  top: 50,
+                  top: 40,
                   left: 20,
                   child: Text(
                     "Hi ${user.displayName == null ? "there" : user.displayName.toString()}, Welcome!",
@@ -150,13 +150,13 @@ class HomeScreen extends StatelessWidget {
                         ),
                         Text(
                           "A safe space for survivors/victims of sexual assault and abuse, "
-                              "harmful practices and other traumatic experiences",
+                              "harmful practices, GBV and other traumatic experiences",
                           style: TextStyle(
                               fontSize: 10,
                               fontWeight: FontWeight.bold,
-                              color: Colors.purple
+                              color: Colors.black
                           ),
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.left,
                         ),
                       ],
                     ),

@@ -43,7 +43,7 @@ class ApplicationBloc with ChangeNotifier {
                 lng: currentLocation!.longitude)
         ),
         name: null,
-        vicinity: 'none'
+        vicinity: "Bamenda"
     );
     notifyListeners();
   }
