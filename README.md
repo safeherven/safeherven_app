@@ -1,7 +1,4 @@
-# safeherven_app
-
-
-### Safe Herven
+# Safe Herven
 
 Safe Herven is a mobile app for victims/survivors of sexual abuse, GBV, domestic abuse, harmful practices like FGM and child marriage as well as other traumatic events that can lead to anxiety and depression.
 ![image](https://user-images.githubusercontent.com/71177851/161199504-91c43872-1a80-439f-a831-1cfa188f1a58.png)
