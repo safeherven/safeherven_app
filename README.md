@@ -10,14 +10,34 @@ Our motivation is the desire to provide a place where victims of gender-based vi
 
 
 ## Key Features
-A friendly chat bot if you just need someone to talk to or want to know the next steps or what to do if faced with any of those mentioned issues.
+- A friendly chat bot if you just need someone to talk to or want to know the next steps or what to do if faced with any of those mentioned issues.
 
-A map with common places you'll most likely need to go to and with just one tap, you find the closest place to you.
+- A map with common places you'll most likely need to go to and with just one tap, you find the closest place to you.
 
-A curated list of non-governmental organisations, foundations and frontline workers with their details. These NGOs are out to help such people but sometimes they don't even know where to go to and which is legit
+- A curated list of non-governmental organisations, foundations and frontline workers with their details. These NGOs are out to help such people but     sometimes they don't even know where to go to and which is legit.
 ![image](https://user-images.githubusercontent.com/71177851/161199464-766377fd-cf36-45b0-9327-fc6399711a16.png)
 
 ![image](https://user-images.githubusercontent.com/71177851/161199373-607b8b1a-f856-4cf2-b051-23577ed973d1.png)
+
+# How to build
+Follow [this](https://docs.flutter.dev/get-started/install) on how to install and set up flutter for mobile development. Clone the repository: ``git clone https://github.com/safeherven/safeherven_app.git``
+
+## Requirements
+
+After cloning the repository, run ``flutter pub get`` to downloand all the dependencies.
+
+## Steps to run
+- Open android studio
+- Get Google Maps API Key
+- Add the API key to your flutter app in the application manifest (android/apps/src/main/AndroidManifest.xml), as follows: git clone 
+
+```
+<manifest ...
+  <application ...
+    <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="YOUR ANDROID API KEY HERE"/>
+  ```             
+- Run the code on Android studio and view the app on an emulator of your choice or mobile device. You can also run the app from the terminal using: ``flutter run``
 
 
 
