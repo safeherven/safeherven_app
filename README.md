@@ -41,3 +41,8 @@ After cloning the repository, run ``flutter pub get`` to downloand all the depen
 
 
 
+## Contributors
+- Meh Ida Delphine 
+- Hawawou Oumarou
+- Petra Ukeh Agien
+- Tatiana Nsei 
