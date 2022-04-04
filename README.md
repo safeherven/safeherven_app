@@ -15,9 +15,8 @@ Our motivation is the desire to provide a place where victims of gender-based vi
 - A map with common places you'll most likely need to go to and with just one tap, you find the closest place to you.
 
 - A curated list of non-governmental organisations, foundations and frontline workers with their details. These NGOs are out to help such people but     sometimes they don't even know where to go to and which is legit.
-![image](https://user-images.githubusercontent.com/71177851/161199464-766377fd-cf36-45b0-9327-fc6399711a16.png)
 
-![image](https://user-images.githubusercontent.com/71177851/161199373-607b8b1a-f856-4cf2-b051-23577ed973d1.png)
+![image](https://github.com/TatianaNsei/safeherven_app/blob/rm_update/assets/images/readme_images/safeherven1.png)
 
 # How to build
 Follow [this](https://docs.flutter.dev/get-started/install) on how to install and set up flutter for mobile development. Clone the repository: ``git clone https://github.com/safeherven/safeherven_app.git``
