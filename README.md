@@ -38,7 +38,7 @@ After cloning the repository, run ``flutter pub get`` to downloand all the depen
   ```             
 - Run the code on Android studio and view the app on an emulator of your choice or mobile device. You can also run the app from the terminal using: ``flutter run``
 
-
+A SAFE HAVEN-Embrace your freedom....
 
 
 ## Contributors
